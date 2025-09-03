@@ -1,72 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokédex</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-    <header>
-        <nav class="nav">
-            <img src="\images\logo.png" alt="Logo Pokédex">
-            <ul class="nav-list">
-                <li class="nav-item"><button class="btn btn-header" id="ver-todos">Ver todos</button></li> 
-                <li class="nav-item"><button class="btn btn-header normal" id="normal">Normal</button></li>
-                <li class="nav-item"><button class="btn btn-header fire" id="fire">Fire</button></li>
-                <li class="nav-item"><button class="btn btn-header water" id="water">Water</button></li>
-                <li class="nav-item"><button class="btn btn-header grass" id="grass">Grass</button></li>
-                <li class="nav-item"><button class="btn btn-header electric" id="electric">Electric</button></li>
-                <li class="nav-item"><button class="btn btn-header ice" id="ice">Ice</button></li>
-                <li class="nav-item"><button class="btn btn-header fighting" id="fighting">Fighting</button></li>
-                <li class="nav-item"><button class="btn btn-header poison" id="poison">Poison</button></li>
-                <li class="nav-item"><button class="btn btn-header ground" id="ground">Ground</button></li>
-                <li class="nav-item"><button class="btn btn-header flying" id="flying">Flying</button></li>
-                <li class="nav-item"><button class="btn btn-header psychic" id="psychic">Psychic</button></li>
-                <li class="nav-item"><button class="btn btn-header bug" id="bug">Bug</button></li>
-                <li class="nav-item"><button class="btn btn-header rock" id="rock">Rock</button></li>
-                <li class="nav-item"><button class="btn btn-header ghost" id="ghost">Ghost</button></li>
-                <li class="nav-item"><button class="btn btn-header dark" id="dark">Dark</button></li>
-                <li class="nav-item"><button class="btn btn-header dragon" id="dragon">Dragon</button></li>
-                <li class="nav-item"><button class="btn btn-header steel" id="steel">Steel</button></li>
-                <li class="nav-item"><button class="btn btn-header fairy" id="fairy">Fairy</button></li>
-                 <li class="nav-item">
-                <button class="btn btn-header" id="volver-index" onclick="window.location.href='index.html'">Volver al inicio</button>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        
-        <div id="todos">
-            <div class="pokemon-todos" id="listaPokemon">
-                <!-- <div class="pokemon">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pokédex</title>
+        <link rel="stylesheet" href="css/style.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+    </head>
+
+    <body>
+        <header>
+            <nav class="nav">
+                <img src="images/logo.png" alt="Logo Pokédex" />
+
+                <!-- Botón Volver -->
+                <button class="btn-volver" onclick="window.location.href='index.html'">
+                    🏠 Volver al inicio
+                </button>
+
+                <div class="filtros-container">
+                    <!-- Búsqueda por nombre -->
+                    <div class="filtro-item">
+                        <label for="nombre-input">Buscar por nombre:</label>
+                        <input type="text" id="nombre-input" placeholder="Ej: pikachu" />
+                    </div>
+
+                    <!-- Filtrar por tipo -->
+                    <div class="filtro-item">
+                        <label for="tipo-select">Filtrar por tipo:</label>
+                        <select id="tipo-select">
+                            <option value="all">Todos</option>
+                            <option value="normal">Normal</option>
+                            <option value="fire">Fuego</option>
+                            <option value="water">Agua</option>
+                            <option value="grass">Planta</option>
+                            <option value="electric">Eléctrico</option>
+                            <option value="ice">Hielo</option>
+                            <option value="fighting">Lucha</option>
+                            <option value="poison">Veneno</option>
+                            <option value="ground">Tierra</option>
+                            <option value="flying">Volador</option>
+                            <option value="psychic">Psíquico</option>
+                            <option value="bug">Bicho</option>
+                            <option value="rock">Roca</option>
+                            <option value="ghost">Fantasma</option>
+                            <option value="dark">Siniestro</option>
+                            <option value="dragon">Dragón</option>
+                            <option value="steel">Acero</option>
+                            <option value="fairy">Hada</option>
+                        </select>
+                    </div>
+
+                    <!-- Filtrar por generación -->
+                    <div class="filtro-item">
+                        <label for="generacion-select">Filtrar por generación:</label>
+                        <select id="generacion-select">
+                            <option value="all">Todas</option>
+                            <option value="1">Generación 1 (Kanto)</option>
+                            <option value="2">Generación 2 (Johto)</option>
+                            <option value="3">Generación 3 (Hoenn)</option>
+                            <option value="4">Generación 4 (Sinnoh)</option>
+                            <option value="5">Generación 5 (Unova)</option>
+                            <option value="6">Generación 6 (Kalos)</option>
+                            <option value="7">Generación 7 (Alola)</option>
+                            <option value="8">Generación 8 (Galar)</option>
+                            <option value="9">Generación 9 (Paldea)</option>
+                        </select>
+                    </div>
+
+                    <!-- Ordenar -->
+                    <div class="filtro-item">
+                        <label for="ordenar-select">Ordenar por:</label>
+                        <select id="ordenar-select">
+                            <option value="id-asc">ID (ascendente)</option>
+                            <option value="id-desc">ID (descendente)</option>
+                            <option value="nombre-asc">Nombre (A-Z)</option>
+                            <option value="nombre-desc">Nombre (Z-A)</option>
+                        </select>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <div id="todos">
+                <div class="pokemon-todos" id="listaPokemon">
+                    <!-- Ejemplo de tarjeta Pokémon (descomentada para referencia)
+                    <div class="pokemon">
                     <p class="pokemon-id-back">#025</p>
                     <div class="pokemon-imagen">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu" />
                     </div>
                     <div class="pokemon-info">
                         <div class="nombre-contenedor">
-                            <p class="pokemon-id">#025</p>
-                            <h2 class="pokemon-nombre">Pikachu</h2>
+                        <p class="pokemon-id">#025</p>
+                        <h2 class="pokemon-nombre">Pikachu</h2>
                         </div>
                         <div class="pokemon-tipos">
-                            <p class="electric tipo">ELECTRIC</p>
-                            <p class="fighting tipo">FIGHTING</p>
+                        <p class="electric tipo">ELECTRIC</p>
+                        <p class="fighting tipo">FIGHTING</p>
                         </div>
                         <div class="pokemon-stats">
-                            <p class="stat">4m</p>
-                            <p class="stat">60kg</p>
+                        <p class="stat">4m</p>
+                        <p class="stat">60kg</p>
                         </div>
                     </div>
-                </div> -->
+                    </div>
+                    -->
+                </div>
+            </div>
+        </main>
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <button id="cerrar-modal" class="cerrar-btn">X</button>
+                <img src="images/pokedex-fondo.png" alt="Pokedex" class="pokedex-bg pokedex-vertical" />
+                <img src="images/pokedex-horizontal.jpg" alt="Pokedex Horizontal" class="pokedex-bg pokedex-horizontal" />
+
+                <div class="pokemon-image-container">
+                <img id="modal-pokemon-img" src="" alt="pokemon" />
+                </div>
+                <div class="pokemon-info-container">
+                <h2 id="modal-pokemon-name"></h2>
+                <p id="modal-pokemon-types"></p>
+                <p id="modal-pokemon-description"></p>
+                <p>Height: <span id="modal-pokemon-height"></span> m</p>
+                <p>Weight: <span id="modal-pokemon-weight"></span> kg</p>
+                </div>
             </div>
         </div>
 
-    </main>
 
-    <script src="script.js"></script>
-</body>
+
+        <script src="js/script.js"></script>
+    </body>
+
 </html>
