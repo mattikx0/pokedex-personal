@@ -75,3 +75,5 @@ botonesHeader.forEach(boton => boton.addEventListener("click", (event) => {
 
     pokemonesFiltrados.forEach(poke => mostrarPokemon(poke));
 }));
+
+
