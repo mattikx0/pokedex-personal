@@ -113,24 +113,80 @@
             </div>
         </main>
 
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <button id="cerrar-modal" class="cerrar-btn">X</button>
-                <img src="images/pokedex-fondo.png" alt="Pokedex" class="pokedex-bg pokedex-vertical" />
-                <img src="images/pokedex-horizontal.jpg" alt="Pokedex Horizontal" class="pokedex-bg pokedex-horizontal" />
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <button id="cerrar-modal" class="cerrar-btn">X</button>
+            <img src="images/pokedex-fondo.png" alt="Pokedex" class="pokedex-bg pokedex-vertical" />
+            <img src="images/pokedex-horizontal.jpg" alt="Pokedex Horizontal" class="pokedex-bg pokedex-horizontal" />
 
-                <div class="pokemon-image-container">
+            <div class="pokemon-image-container">
                 <img id="modal-pokemon-img" src="" alt="pokemon" />
+                <button id="btn-cry" class="cry-button" aria-label="Escuchar grito" title="Escuchar grito">🔊</button>
+                <button id="btn-shiny" class="shiny-button" title="Ver forma shiny">⭐</button>
+            </div>
+
+
+
+            <div class="pokemon-info-container">
+                <div class="modal-header">
+                    <h2>
+                        <span id="modal-pokemon-name"></span>
+                        <span id="modal-pokemon-id"></span>
+                    </h2>
                 </div>
-                <div class="pokemon-info-container">
-                <h2 id="modal-pokemon-name"></h2>
-                <p id="modal-pokemon-types"></p>
-                <p id="modal-pokemon-description"></p>
-                <p>Height: <span id="modal-pokemon-height"></span> m</p>
-                <p>Weight: <span id="modal-pokemon-weight"></span> kg</p>
+
+                <div class="descripcion" id="modal-pokemon-description">
+                    Put a description here!
                 </div>
+
+                <div class="poke-info">
+                    <div><strong>Altura</strong><br /><span id="modal-pokemon-height">0.7</span> m</div>
+                    <div><strong>Peso</strong><br /><span id="modal-pokemon-weight">6.9</span> kg</div>
+                    <div><strong>Categoría</strong><br /><span id="modal-pokemon-category">Semilla</span></div>
+                    <div><strong>Habilidad</strong><br /><span id="modal-pokemon-ability">Espesura</span></div>
+                    <div><strong>Género</strong><br /><span id="modal-pokemon-gender">♂ ♀</span></div>
+                </div>
+
+                <div class="tipos-debilidades">
+                    <div class="tipos">
+                        <strong>Tipo</strong>
+                        <div id="modal-pokemon-types">
+                            <!-- Aquí irán botones dinámicos con JS -->
+                        </div>
+                    </div>
+                    <div class="debilidades">
+                        <strong>Debilidad</strong>
+                        <div id="modal-pokemon-weaknesses">
+                            <!-- Aquí irán botones dinámicos con JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="evoluciones">
+                    <strong>Evoluciones</strong>
+                    <div class="evo-lista" id="modal-pokemon-evolutions">
+                        <!-- Cada evolución será algo así -->
+                        <!--
+                        <div class="evo-item">
+                            <img src="url-imagen" alt="nombre-evo" />
+                            <p class="evo-name">Nombre</p>
+                            <p class="evo-number">N°000X</p>
+                            <div class="evo-types">
+                                <span class="type fuego">Fuego</span>
+                            </div>
+                        </div>
+                        -->
+                    </div>
+                </div>
+                
             </div>
         </div>
+
+        <div class="modal-buttons">
+            <button id="prev-btn">◀️ Anterior</button>
+            <button id="next-btn">Siguiente ▶️</button>
+        </div>
+    </div>
 
 
 
