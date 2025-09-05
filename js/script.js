@@ -439,12 +439,16 @@ document.addEventListener("keydown", (event) => {
 });
 
 // Opcional: cerrar modal al hacer clic fuera del contenido
-window.addEventListener("click", (e) => {
-    if (e.target === modal) {
+modal.addEventListener("click", (e) => {
+    const contenido = document.querySelector(".modal-content");
+    if (!contenido.contains(e.target)) {
         modal.classList.add("hidden");
         document.body.style.overflow = "";
     }
 });
+
+
+
 
 
 
@@ -538,8 +542,37 @@ async function cargarPokemones() {
     }
 }
 
+function mostrarPokemonsVisual(pokemonList) {
+    const grid = document.getElementById("visual-grid");
+    grid.innerHTML = ""; // Limpiar antes de renderizar
+
+    pokemonList.forEach(poke => {
+        const img = document.createElement("img");
+        img.src = poke.sprites.front_default; // Usa sprite simple
+        img.alt = poke.name;
+        img.title = poke.name;
+
+        // Clic abre el modal del Pokémon
+        img.addEventListener("click", () => {
+        mostrarModal(poke);
+        });
+
+        grid.appendChild(img);
+    });
+}
+
+
+async function iniciarApp() {
+    await cargarPokemones();
+    mostrarPokemonsVisual(todosLosPokemon);
+    console.log("Pokémon cargados:", todosLosPokemon);
+
+}
+
+
 // Iniciar
-cargarPokemones();
+iniciarApp();
+
 
 
 

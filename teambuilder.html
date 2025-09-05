@@ -4,35 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Crea tu equipo</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
     <main>
         <section id="team-builder">
-            <div class="team-container">
-                <!-- Aquí irán los 6 Pokémon del equipo -->
-            </div>
+            <div class="team-section">
+                <div class="team-container">
+                    <!-- Aquí van los 6 cuadros del equipo -->
+                </div>
 
-            <div class="team-actions">
-                <button>Equipo aleatorio</button>
-                <button>Analisar equipo</button>
-                <button>Ocultar opciones</button>
+                <div class="team-actions">
+                    <button>Equipo aleatorio</button>
+                    <button>Analizar equipo</button>
+                    <button>Ocultar opciones</button>
+                </div>
             </div>
 
             <div class="filters-container">
                 <!-- Aquí van los filtros tipo dropdowns y campos de búsqueda -->
             </div>
 
-            <div class="pokedex-container">
-                <div class="pokedex-images">
-                    <img src="ruta/a/pokemon1.png" alt="Pokemon 1" />
-                    <img src="ruta/a/pokemon2.png" alt="Pokemon 2" />
-                    <!-- más imágenes -->
-                </div>
-            </div>
+            <!-- Pokédex visual se generará con JS -->
+            <section id="pokedex-visual" class="pokedex-visual"></section>
+
             
         </section>
 
     </main>
+
+
+    <script src="js/teambuilder.js"></script>
 </body>
 </html>
