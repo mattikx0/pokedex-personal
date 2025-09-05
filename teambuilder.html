@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Choices.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+
     <title>Crea tu equipo</title>
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
     <main>
+        <!-- Botón Volver -->
+        <button class="btn-volver" onclick="window.location.href='index.html'">
+            🏠 Volver al inicio
+        </button>
         <section id="team-builder">
             <div class="team-section">
                 <div class="team-container">
@@ -15,10 +22,17 @@
                 </div>
 
                 <div class="team-actions">
-                    <button>Equipo aleatorio</button>
-                    <button>Analizar equipo</button>
-                    <button>Ocultar opciones</button>
+                    <button onclick="generarEquipoAleatorio()">Equipo aleatorio</button>
+                    <button id="btn-analizar-equipo">Analizar equipo</button>
+                    <button id="btn-vaciar-equipo">Vaciar equipo</button>
+                    <button onclick="toggleOpciones(this)">Ocultar opciones</button>
                 </div>
+
+                <div id="analisis-container" class="analisis oculto">
+                    <!-- Aquí se mostrará el análisis del equipo -->
+                </div>
+
+
             </div>
 
             <div class="filters-container">
@@ -35,5 +49,6 @@
 
 
     <script src="js/teambuilder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 </body>
 </html>
